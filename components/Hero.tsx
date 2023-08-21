@@ -20,11 +20,17 @@ const Hero = () => {
           containerStyles="bg-blue-700 text-white rounded-full mt-10 p-2"
           handleClick={handleScroll}
         />
-        <div className="xl:flex-[1.5] flex justify-end items-end w-full xl:h-screen">
-          <div className="relative xl:w-full w-[90%] xl:h-screen h-[590px] z-0">
-            <Image src="/hero.png" alt="hero" fill className="object-contain" />
+        <div className="flex justify-center">
+          <div className="w-[50%] h-[50%]">
+            <Image
+              src="/hero.png"
+              alt="hero"
+              width={100}
+              height={100}
+              layout="responsive"
+              objectFit="contain"
+            />
           </div>
-          <div className="absolute xl:-top-24 xl:-right-1/2 -right-1/4 bg-[url('/hero-bg.png')] bg-repeat-round -z-10 w-full h-full overflow-hidden" />
         </div>
       </div>
     </div>
