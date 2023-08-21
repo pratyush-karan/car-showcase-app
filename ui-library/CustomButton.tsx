@@ -1,3 +1,4 @@
+"use client";
 import { CustomButtonProps } from "@/types";
 import React from "react";
 import Image from "next/image";
@@ -17,10 +18,10 @@ const CustomButton = ({
       className={`flex flex-row relative justify-center items-center outline-none ${containerStyles}`}
       onClick={handleClick}
     >
-      <span className={`flex-1 ${textStyles}`}>
+      <span className={`${textStyles} flex-1 w-fit `}>
         {title}
         {rightIcon && (
-          <span className="absolute ">
+          <span className="absolute">
             <Image
               src={rightIcon}
               alt="rightIcon"

@@ -5,6 +5,8 @@ import React, { useState } from "react";
 import { calculateCarRent } from "@/utils";
 import Image from "next/image";
 import CustomButton from "@/ui-library/CustomButton";
+import CarDetails from "./CarDetails";
+import { generateCarImageUrl } from "@/Services/carService";
 
 interface CarCardProps {
   car: CarProps;
@@ -15,7 +17,7 @@ const CarCard = ({ car }: CarCardProps) => {
 
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="flex flex-col p-6 justify-center items-start text-black-100 bg-primary-blue-100 hover:bg-white hover:shadow-md rounded-3xl group">
+    <div className="flex flex-col p-6 justify-center items-start text-black-100 bg-blue-100 hover:bg-white hover:shadow-md rounded-3xl group">
       <div className="w-full flex justify-between items-start gap-2">
         <h2 className="text-[22px] leading-[26px] font-bold capitalize">
           {make} {model}
@@ -29,7 +31,7 @@ const CarCard = ({ car }: CarCardProps) => {
 
       <div className="relative w-full h-40 my-3 object-contain">
         <Image
-          src="/hero.png"
+          src={generateCarImageUrl(car)}
           alt="car-model"
           fill
           priority
@@ -70,6 +72,11 @@ const CarCard = ({ car }: CarCardProps) => {
           />
         </div>
       </div>
+      <CarDetails
+        isOpen={isOpen}
+        closeModal={() => setIsOpen(false)}
+        car={car}
+      />
     </div>
   );
 };

@@ -2,12 +2,10 @@ import CarCard from "@/components/CarCard";
 import CustomFilter from "@/components/CustomFilter";
 import Hero from "@/components/Hero";
 import SearchBar from "@/components/SearchBar";
-import { fetchCar, fetchAllCars } from "@/Services/carService";
+import { fetchCar } from "@/Services/carService";
 
 export default async function Home() {
-  // fetchCar("corolla").then((res) => console.log("1", res));
-  // fetchAllCars().then((res) => console.log(res));
-  const allCars = await fetchCar("corolla");
+  const allCars = await fetchCar("q3");
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
   console.log(allCars);
   return (
