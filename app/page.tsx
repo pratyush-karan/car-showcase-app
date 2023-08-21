@@ -2,6 +2,7 @@ import CarCard from "@/components/CarCard";
 import CustomFilter from "@/components/CustomFilter";
 import Hero from "@/components/Hero";
 import SearchBar from "@/components/SearchBar";
+import ShowMore from "@/components/ShowMore";
 import { fuels, yearsOfProduction } from "@/constants";
 import { fetchCar } from "@/Services/carService";
 
@@ -14,7 +15,7 @@ export default async function Home({ searchParams }: any) {
     model: searchParams.model || "",
   });
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
-  console.log(allCars);
+
   return (
     <main className="overflow-hidden">
       <Hero />
@@ -37,6 +38,10 @@ export default async function Home({ searchParams }: any) {
                 <CarCard car={car} />
               ))}
             </div>
+            <ShowMore
+              pageNumber={(searchParams.limit || 10) / 10}
+              isNext={(searchParams.limit || 10) > allCars.length}
+            />
           </section>
         ) : (
           <div className="mt-16 flex justify-center items-center flex-col gap-2">

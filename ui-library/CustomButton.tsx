@@ -15,10 +15,10 @@ const CustomButton = ({
     <button
       disabled={false}
       type={btnType || "button"}
-      className={`flex flex-row relative justify-center items-center outline-none ${containerStyles}`}
+      className={`flex flex-row relative justify-center items-center outline-none ${containerStyles} p-2`}
       onClick={handleClick}
     >
-      <span className={`${textStyles} flex-1 w-fit `}>
+      <span className={`${textStyles} flex-1 w-fit`}>
         {title}
         {rightIcon && (
           <span className="absolute">

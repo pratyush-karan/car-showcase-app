@@ -46,3 +46,8 @@ export interface FilterProps {
   limit: number;
   model: string;
 }
+
+export interface ShowMoreProps {
+  pageNumber: number;
+  isNext: boolean;
+}
